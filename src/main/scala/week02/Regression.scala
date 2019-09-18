@@ -43,17 +43,17 @@ trait Regression {
   }
 
 
-  val MAT = getMatrixFromFile("week02/ex1data1.txt")
+  val MAT: DenseMatrix[Double] = getMatrixFromFile("week02/ex1data1.txt")
   val iterations = 1500
   val alpha = 0.0001
-  val THETA = DenseMatrix.zeros[Double](2,1)
-  val X = DenseMatrix.horzcat(DenseMatrix.ones[Double](MAT.rows, 1), MAT(0 to -1, 0 to 0))
-  val Y = MAT(0 to -1, 1 to 1)
+  val THETA: DenseMatrix[Double] = DenseMatrix.zeros[Double](2,1)
+  val X: DenseMatrix[Double] = DenseMatrix.horzcat(DenseMatrix.ones[Double](MAT.rows, 1), MAT(0 to -1, 0 to 0))
+  val Y: DenseMatrix[Double] = MAT(0 to -1, 1 to 1)
 
   // in case of THETA = (0,0) expression returns 32.07
   println("Jo = %f".format(computeCostFunction(X, Y, THETA)))
   // run gradient descent
-  val t = gradientDescent(X, Y, THETA, alpha, iterations)
+  val t: DenseMatrix[Double] = gradientDescent(X, Y, THETA, alpha, iterations)
   println("The result of gradient descent: h(x) = %f + %f * x".format(t(0,0), t(1,0)))
 }
 

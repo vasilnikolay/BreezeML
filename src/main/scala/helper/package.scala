@@ -13,7 +13,7 @@ package object helper {
 
   def getMatrixFromFile(resourcePath: String): DenseMatrix[Double] = {
     val rows = {for (line <- Source.fromResource(resourcePath).getLines()) yield parseLine(line)}.toList
-    val rowLength: Int = rows(0).length
+    val rowLength: Int = rows.head.length
     @tailrec
     def go(ar: List[DenseVector[Double]], mat: DenseMatrix[Double]): DenseMatrix[Double] ={
       ar match {
