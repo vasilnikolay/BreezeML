@@ -43,7 +43,7 @@ trait Regression {
   }
 
 
-  val MAT: DenseMatrix[Double] = getMatrixFromFile("week02/ex1data1.txt")
+  val MAT: DenseMatrix[Double] = getMatrixFromFile("w02ex1data1.txt")
   val iterations = 1500
   val alpha = 0.0001
   val THETA: DenseMatrix[Double] = DenseMatrix.zeros[Double](2,1)
